@@ -1,38 +1,51 @@
-import React from 'react';
+export const API_URL = 'https://dogsapi.origamid.dev/json';
 
-const luana = {
-  cliente: 'Luana',
-  idade: 27,
-  compras: [
-    { nome: 'Notebook', preco: 'R$ 2500' },
-    { nome: 'Geladeira', preco: 'R$ 3000' },
-    { nome: 'Smartphone', preco: 'R$ 1500' },
-    { nome: 'Guitarra', preco: 'R$ 1000' },
-  ],
-  ativa: true,
-};
+export function TOKEN_POST(body) {
+  return {
+    url: API_URL + '/jwt-auth/v1/token',
+    options: {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(body),
+    },
+  };
+}
 
-const App = () => {
-  const dados = luana;
+export function TOKEN_VALIDATE_POST(token) {
+  return {
+    url: API_URL + '/jwt-auth/v1/token/validate',
+    options: {
+      method: 'POST',
+      headers: {
+        Authorization: 'Bearer ' + token,
+      },
+    },
+  };
+}
 
-  const total = dados.compras
-    .map((item) => Number(item.preco.replace('R$ ', '')))
-    .reduce((a, b) => a + b);
+export function USER_GET(token) {
+  return {
+    url: API_URL + '/api/user',
+    options: {
+      method: 'GET',
+      headers: {
+        Authorization: 'Bearer ' + token,
+      },
+    },
+  };
+}
 
-  return (
-    <div>
-      <p>Nome: {dados.cliente}</p>
-      <p>Idade: {dados.idade}</p>
-      <p>
-        Situação:{' '}
-        <span style={{ color: dados.ativa ? 'green' : 'red' }}>
-          {dados.ativa ? 'Ativa' : 'Inativa'}
-        </span>
-      </p>
-      <p>Total: R$ {total}</p>
-      {total > 10000 && <p>'Você está gastando muito!'</p>}
-    </div>
-  );
-};
-
-export default App;
+export function USER_POST(body) {
+  return {
+    url: API_URL + '/api/user',
+    options: {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(body),
+    },
+  };
+}
