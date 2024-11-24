@@ -1,51 +1,27 @@
-export const API_URL = 'https://dogsapi.origamid.dev/json';
+import React from 'react';
+import './App.css';
+import Api from '../api/Api';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-export function TOKEN_POST(body) {
-  return {
-    url: API_URL + '/jwt-auth/v1/token',
-    options: {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(body),
-    },
-  };
+import Header from './Components/Header';
+import Footer from './Components/Footer';
+import Home from './Components/Home';
+import Login from './Components/Login/Login';
+
+function App() {
+  return (
+    <div>
+      <Api />
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+        </Routes>
+        <Footer />
+      </BrowserRouter>
+    </div>
+  );
 }
 
-export function TOKEN_VALIDATE_POST(token) {
-  return {
-    url: API_URL + '/jwt-auth/v1/token/validate',
-    options: {
-      method: 'POST',
-      headers: {
-        Authorization: 'Bearer ' + token,
-      },
-    },
-  };
-}
-
-export function USER_GET(token) {
-  return {
-    url: API_URL + '/api/user',
-    options: {
-      method: 'GET',
-      headers: {
-        Authorization: 'Bearer ' + token,
-      },
-    },
-  };
-}
-
-export function USER_POST(body) {
-  return {
-    url: API_URL + '/api/user',
-    options: {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(body),
-    },
-  };
-}
+export default App;
