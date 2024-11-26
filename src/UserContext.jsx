@@ -1,13 +1,16 @@
 import React from 'react';
-import { TOKEN_POST, TOKEN_VALIDATE_POST, USER_GET } from './api';
+import { TOKEN_POST, TOKEN_VALIDATE_POST, USER_GET } from './apis';
 import { useNavigate } from 'react-router-dom';
 
 export const UserContext = React.createContext();
 
 export const UserStorage = ({ children }) => {
   const [data, setData] = React.useState(null);
+  // Verifica se o usuario está logado
   const [login, setLogin] = React.useState(null);
+  // Carregamento durante a requisição do usuário
   const [loading, setLoading] = React.useState(false);
+  // Caso ao puxar o usuario dê algum erro
   const [error, setError] = React.useState(null);
   const navigate = useNavigate();
 
