@@ -12,6 +12,7 @@ export const UserStorage = ({ children }) => {
   const [loading, setLoading] = React.useState(false);
   // Caso ao puxar o usuario dê algum erro
   const [error, setError] = React.useState(null);
+  // Função que diz pra onde deve navegar na página em um momento específico
   const navigate = useNavigate();
 
   const userLogout = React.useCallback(
