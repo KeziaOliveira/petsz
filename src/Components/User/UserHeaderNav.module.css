@@ -7,14 +7,14 @@
 .nav a,
 .nav button {
   background: #eee;
-  border-radius: .2rem;
+  border-radius: 0.2rem;
   height: 40px;
   width: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
   border: 1px solid transparent;
-  transition: 1s;
+  transition: 0.1s;
   cursor: pointer;
 }
 
@@ -25,4 +25,14 @@
   background: white;
   box-shadow: 0 0 0 3px #eee;
   border-color: #333;
+}
+
+.nav :global(a.active) {
+  background: white;
+  box-shadow: 0 0 0 3px #fea;
+  border-color:  #fb1;
+}
+
+.nav :global(a.active) svg > * {
+  fill: #fb1;
 }
