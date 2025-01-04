@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Image.module.css';
 
-const Image = () => {
+const Image = ({ alt, ...props }) => {
   const [skeleton, setSkeleton] = React.useState(true);
 
   function handleLoad({ target }) {
