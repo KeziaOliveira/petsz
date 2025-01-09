@@ -15,9 +15,7 @@ const LoginPasswordLost = () => {
     if (login.validate()) {
       const { url, options } = PASSWORD_LOST({
         login: login.value,
-        // Essa URL precisa ser a do site
-        url: 'http://localhost:5173/login/recuperar',
-        // url: window.location.href.replace('recuperar', 'resetar'),
+        url: window.location.href.replace('recuperar', 'resetar'),
       });
       const { json } = await request(url, options);
     }
