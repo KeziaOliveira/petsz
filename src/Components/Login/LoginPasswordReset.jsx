@@ -6,6 +6,7 @@ import { PASSWORD_RESET } from '../../apis';
 import { useNavigate } from 'react-router-dom';
 import Input from '../Forms/Input';
 import Error from '../Helper/Error';
+import Head from '../Helper/Head';
 
 const LoginPasswordReset = () => {
   // Estados reativos com suas respectivas chaves reativas
@@ -40,6 +41,7 @@ const LoginPasswordReset = () => {
 
   return (
     <div>
+      <Head title="Resetar senha" />
       <h1 className="title">Resete a senha</h1>
       <form onSubmit={handleSubmit}>
         <Input
