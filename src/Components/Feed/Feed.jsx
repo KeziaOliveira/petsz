@@ -16,7 +16,7 @@ const Feed = ({ user }) => {
       if (infinite) {
         const scroll = window.scrollY;
         const height = document.body.offsetHeight - window.innerHeight;
-        if ((scroll = heigth * 0.75 && !wait)) {
+        if (scroll > height * 0.75 && !wait) {
           setPages((pages) => [...pages, pages.length + 1]);
           wait = true;
           setTimeout(() => {
@@ -25,10 +25,10 @@ const Feed = ({ user }) => {
         }
       }
     }
-    window.addEventListener('weel', infiniteScroll);
+    window.addEventListener('wheel', infiniteScroll);
     window.addEventListener('scroll', infiniteScroll);
     return () => {
-      window.removeEventListener('weel', infiniteScroll);
+      window.removeEventListener('wheel', infiniteScroll);
       window.removeEventListener('scroll', infiniteScroll);
     };
   }, [infinite]);
@@ -52,7 +52,7 @@ const Feed = ({ user }) => {
 };
 
 // PropTypes
-Feed.deaultProps = {
+Feed.defaultProps = {
   user: 0,
 };
 

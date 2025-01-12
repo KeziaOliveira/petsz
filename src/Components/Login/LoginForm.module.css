@@ -2,6 +2,10 @@
   margin-bottom: 2rem;
 }
 
+.login {
+  margin-bottom: 4rem;
+}
+
 .recuperar {
   display: inline-block;
   color: #666;
@@ -18,7 +22,7 @@
 }
 
 .cadastro {
-  margin-top: 4rem;
+  margin-top: 4.2rem;
 }
 
 .cadastro p {
